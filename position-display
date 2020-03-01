@@ -1,0 +1,10 @@
+#!/bin/sh
+# possible relative positions
+positions="left-of\nright-of\nabove\nbelow\nsame-as"
+# choose from connected displays
+display=$(xrandr | grep " connected" | cut -d " " -f 1 | dmenu -i)
+# choose relative position
+position=$(echo -e $positions | dmenu -i)
+# choose display to position chosen display relative to
+display2=$(xrandr | grep " connected" | cut -d " " -f 1 | dmenu -i)
+xrandr --output $display --auto --$position $display2
