@@ -1,0 +1,10 @@
+#!/bin/bash
+t=$(cut -f 1 -d "." /proc/uptime)
+if [ $t -le 120 ]; then 
+    google-chrome& 
+    keepassx& 
+    cherrytree& 
+    thunderbird&
+    brave-browser&
+    startconky&
+fi
