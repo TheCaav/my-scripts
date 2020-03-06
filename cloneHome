@@ -1,7 +1,7 @@
 #/bin/bash
-git clone --bare git@github.com:TheCaav/MyHome.git $HOME/.cfg
+git clone --bare git@github.com:TheCaav/MyHome.git .cfg
 function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+   /usr/bin/git --git-dir=.cfg/ --work-tree=. $@
 }
 
 config checkout
@@ -17,3 +17,5 @@ config submodule init
 config submodule update
 config config status.showUntrackedFiles no
 config submodule update --remote
+echo "The following alias should be added:"
+echo "alias config='/usr/bin/git --git-dir="""$PWD"""/.cfg/ --work-tree="""$PWD"""/ $@'"
