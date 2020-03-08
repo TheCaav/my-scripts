@@ -5,6 +5,6 @@ if [ $t -le 120 ]; then
     keepassx& 
     cherrytree& 
     thunderbird&
-    brave-browser&
+    brave&
     startconky&
 fi
