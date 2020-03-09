@@ -2,7 +2,7 @@
 t=$(cut -f 1 -d "." /proc/uptime)
 if [ $t -le 120 ]; then 
     google-chrome& 
-    keepassx& 
+    keepassxc& 
     cherrytree& 
     thunderbird&
     brave&

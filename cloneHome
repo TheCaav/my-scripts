@@ -19,3 +19,17 @@ config config status.showUntrackedFiles no
 config submodule update --remote
 echo "The following alias should be added:"
 echo "alias config='/usr/bin/git --git-dir="""$PWD"""/.cfg/ --work-tree="""$PWD"""/ $@'"
+
+echo "cloning vimix themes"
+git clone https://github.com/vinceliuice/vimix-gtk-themes.git vimix-gtk
+git clone https://github.com/vinceliuice/vimix-icon-theme.git vimix-icons
+echo "installing themes"
+cd vimix-gtk
+sh install.sh
+cd ..
+cd vimix-icons
+sh install.sh
+cd ..
+echo "removing git folders"
+rm -rf vimix-gtk
+rm -rf vimix-icons
