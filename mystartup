@@ -7,4 +7,5 @@ if [ $t -le 120 ]; then
     thunderbird&
     brave&
     startconky&
+	 pulseaudio --daemon
 fi

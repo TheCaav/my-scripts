@@ -28,7 +28,7 @@ cd vimix-gtk
 sh install.sh
 cd ..
 cd vimix-icons
-sh install.sh
+sh install.sh -a
 cd ..
 echo "removing git folders"
 rm -rf vimix-gtk
