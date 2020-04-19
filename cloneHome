@@ -1,4 +1,15 @@
 #/bin/bash
+
+function installFromGit {
+	gitURL = $1
+	installCommand = [ -z "$2" ] && $2 || "make install"
+
+	git clone $gitURL tempFolder
+	cd tempFolder
+	bash "$installCommand"
+	cd ..
+}
+
 git clone --bare git@github.com:TheCaav/MyHome.git .cfg
 function config {
    /usr/bin/git --git-dir=$PWD/.cfg/ --work-tree=$PWD $@
@@ -20,16 +31,10 @@ config submodule update --remote
 echo "The following alias should be added:"
 echo "alias config='/usr/bin/git --git-dir="""$PWD"""/.cfg/ --work-tree="""$PWD"""/ $@'"
 
-echo "cloning vimix themes"
-git clone https://github.com/vinceliuice/vimix-gtk-themes.git vimix-gtk
-git clone https://github.com/vinceliuice/vimix-icon-theme.git vimix-icons
 echo "installing themes"
-cd vimix-gtk
-sh install.sh
-cd ..
-cd vimix-icons
-sh install.sh -a
-cd ..
-echo "removing git folders"
-rm -rf vimix-gtk
-rm -rf vimix-icons
+installFromGit https://github.com/vinceliuice/vimix-gtk-themes.git "sudo sh install.sh"
+installFromGit https://github.com/vinceliuice/vimix-icon-theme.git "sudo sh install.sh -a"
+
+echo "Installing other programs from GIT Repos"
+#installFromGit https://git.suckless.org/tabbed "sudo make install"
+

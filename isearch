@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+source $HOME/.scripts/web_search
+
+engines="google\nstartpage\nqwant\nduckduckgo\nyandex\nbing\nyahoo\nyandex\necosia\nbaidu\ngithub\ngoodreads\ngivero\nstackoverflow\nwolframalpha"
+
+# ask for which engine to use
+engine=$(echo -e $engines | dmenu -i)
+
+# ask for what to search for
+searchterm=$(echo "search for something" | dmenu -i)
+
+# search for it with the web_search script
+
+web_search $engine $searchterm

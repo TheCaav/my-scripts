@@ -1,7 +1,7 @@
 #!/bin/sh
 #scripts="dock-dvi-left\nintern-fhd\nintern\nscale-fhd"
 #prompt="Which xrandr script to run?"
-path="$HOME/.config/my-screenlayout/Latitude"
+path="$HOME/.config/my-screenlayout/Latitude/"
 #scripts="$(ls $path |  tr ' ' '\n')"
 chosen=$(ls $path | dmenu -i)
 if [ $chosen != "" ]; then
