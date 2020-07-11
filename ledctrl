@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Usage and Info:"
+
+curl --data "usage" -x "192.168.0.199:3128" 10.3.141.234
+
+echo "press enter to continue"
+read
+
+while [ true ]
+do
+	commands="usage\nanimation\nfrequency\nbrightness\ncolor\nChangeHue\nColorTemperature\nColorCorrection"
+	command=$(echo -e $commands | dmenu)
+	if [ "$command" == "" ]
+	then	
+		exit 0
+	fi
+	echo "Your parameter:"
+	read parameter
+
+	curl --data "$command=$parameter" -x "192.168.0.199:3128" 10.3.141.234
+done
