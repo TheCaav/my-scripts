@@ -34,6 +34,7 @@ feh
 ffmpeg
 flatpak
 fontconfig?
+fwupd
 gawk
 ghostscript
 git
@@ -90,3 +91,4 @@ grml-zsh-config
 zsh-syntax-highlighting
 zsh-completions
 https://gitlab.com/LukeSmithxyz/LARBS
+sshfs

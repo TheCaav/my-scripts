@@ -35,6 +35,9 @@ echo "installing themes"
 installFromGit https://github.com/vinceliuice/vimix-gtk-themes.git "sudo sh install.sh"
 installFromGit https://github.com/vinceliuice/vimix-icon-theme.git "sudo sh install.sh -a"
 
+echo "installing from package list"
+[ -z "$1" ] && sudo dnf install $1
+
 echo "Installing other programs from GIT Repos"
 #installFromGit https://git.suckless.org/tabbed "sudo make install"
 
