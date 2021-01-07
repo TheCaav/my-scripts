@@ -2,5 +2,5 @@ google-chrome&
 keepassx&
 cherrytree&
 thunderbird&
-brave-browser&
+brave&
 startconky&

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+dockpath="/home/curankar/Documents/\n/home/curankar/stick/Documents/Allgemeines/\n/home/curankar/Downloads/"
+
+IFS=' '
+read -ra arr <<< "$dockpath"
+folder=$(echo -e $dockpath | dmenu -i)
+file=$(ls  $folder | dmenu -i)
+
+if [ -e $file ]; then
+	exit 77
+fi
+
+chosen=$folder$file
+qpdfview $chosen
