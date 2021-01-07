@@ -31,12 +31,18 @@ config submodule update --remote
 echo "The following alias should be added:"
 echo "alias config='/usr/bin/git --git-dir="""$PWD"""/.cfg/ --work-tree="""$PWD"""/ $@'"
 
+echo "installing from package list"
+[ -z "$1" ] && sudo dnf install $1
+
+echo "Configuring vim"
+config submodule update --init --recursive
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+cd ~
+
 echo "installing themes"
 installFromGit https://github.com/vinceliuice/vimix-gtk-themes.git "sudo sh install.sh"
 installFromGit https://github.com/vinceliuice/vimix-icon-theme.git "sudo sh install.sh -a"
-
-echo "installing from package list"
-[ -z "$1" ] && sudo dnf install $1
 
 echo "Installing other programs from GIT Repos"
 #installFromGit https://git.suckless.org/tabbed "sudo make install"
