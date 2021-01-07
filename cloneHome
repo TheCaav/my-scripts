@@ -40,4 +40,6 @@ echo "installing from package list"
 
 echo "Installing other programs from GIT Repos"
 #installFromGit https://git.suckless.org/tabbed "sudo make install"
-
+echo "Installing zsh plugins"
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
